@@ -26,20 +26,24 @@ const loadCategoriesItem = () => {
 }
 
 const displayCategoriesItem = (items) => {
-    console.log(items.pets);
     const div = document.getElementById('cart-container');
     for (const cart of items.pets) {
+        console.log(cart);
         const newDiv = document.createElement('div');
         newDiv.innerHTML = `
-        <div class="card card-compact">
+        <div class="card">
           <figure>
             <img
-              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-              alt="Shoes" />
+              src="${cart.image}"
+              class = "rounded-lg"
+              alt="Image here" />
           </figure>
-          <div class="card-body">
-            <h2 class="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div class="space-y-1">
+            <h2 class="text-xl font-bold">${cart.pet_name}</h2>
+            <div class="flex flex-row items-center space-x-1"><img class="w-4 h-4" src="images/Frame.svg"/><p>Breed: ${cart.breed}</p></div>
+            <div class="flex flex-row items-center space-x-1"><img class="w-4 h-4" src="images/Frame (1).svg"/><p>Birth: ${cart.date_of_birth}</p></div>
+            <div class="flex flex-row items-center space-x-1"><img class="w-4 h-4" src="images/Frame (2).svg"/><p>Gender: ${cart.gender}</p></div>
+            <div class="flex flex-row items-center space-x-1"><img class="w-4 h-4" src="images/Frame (3).svg"/><p>Price: ${cart.price}</p></div>
           </div>
         </div>
         `
